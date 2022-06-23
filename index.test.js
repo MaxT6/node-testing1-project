@@ -1,19 +1,46 @@
 const utils = require('./index')
 
+
 describe('[Exercise 1] trimProperties', () => {
+  let input;
+  let original;
+
+
+  beforeEach(() => {
+    original = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    input = { foo: '  foo ', bar: 'bar ', baz: ' baz' };
+  })
+  
   test('[1] returns an object with the properties trimmed', () => {
     // EXAMPLE
-    const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    // const input = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
     const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
     const actual = utils.trimProperties(input)
     expect(actual).toEqual(expected)
   })
-  // test('[2] returns a copy, leaving the original object intact', () => {})
+  test('[2] returns a copy, leaving the original object intact', () => {
+    utils.trimProperties(input);
+    expect(input).toEqual(original)
+  })
 })
 
 describe('[Exercise 2] trimPropertiesMutation', () => {
-  // test('[3] returns an object with the properties trimmed', () => {})
-  // test('[4] the object returned is the exact same one we passed in', () => {})
+  let input;
+  let original;
+
+
+  beforeEach(() => {
+    original = { foo: '  foo ', bar: 'bar ', baz: ' baz' }
+    input = { foo: '  foo ', bar: 'bar ', baz: ' baz' };
+  })
+
+
+  test('[3] returns an object with the properties trimmed', () => {
+    const expected = { foo: 'foo', bar: 'bar', baz: 'baz' }
+    const actual = utils.trimPropertiesMutation(input)
+    expect(actual).toEqual(expected)
+  })
+  test('[4] the object returned is the exact same one we passed in', () => {})
 })
 
 describe('[Exercise 3] findLargestInteger', () => {
